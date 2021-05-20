@@ -31,18 +31,17 @@ let menu = {
 };
 
 function loadEntires() {
-  fetch("http://localhost:3000/entries")
-  .then(response => response.json())
-  .then(entries => {
-    // move conditional outside of fetch?
-    if (allEntries.length === 0) {
+  if (allEntries.length === 0) {
+    fetch("http://localhost:3000/entries")
+    .then(response => response.json())
+    .then(entries => {
       entries.forEach(entry => {
         allEntries.push(entry)
       })
-    } else {
-      return allEntries
-    }
-  })
+    })
+  } else {
+    return allEntries
+  }
 }
 
 function entryIndex() {
@@ -58,6 +57,7 @@ function entryIndex() {
 }
 
 function viewEntry(id) {
+  // could filter through allEntries array to eliminate this call to database?
   fetch(`http://localhost:3000/entries/${parseInt(id)}`)
   .then(response => response.json())
   .then(entry => {
