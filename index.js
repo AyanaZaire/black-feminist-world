@@ -1,4 +1,4 @@
-/*  A learning library stocked with Black Feminist STEAM in Javascript V8 3.14.5.9
+/*  A learning library stocked with Black Women's Care Work in Javascript V8 3.14.5.9
 Execute using NodeJS
 
 STEP 1
@@ -154,35 +154,18 @@ function splitFavoriteBios() {
       console.log("No favorites added yet. To add a favorite view entries below.");
       entryIndex()
     } else {
-      // BUG: Do I need to make a fetch request for each favorite? Or can I simply filter through entries?
       var singleArrayOfSentences = []
-      favorites.forEach(favorite => {
-        // creating a class for entries would get rid of this duplicate fetch to entries
-        fetch("http://localhost:3000/entries")
-        .then(response => response.json())
-        .then (entries => {
-          // would a forEach + if statement work better than filter?
-          let favoritedEntries = entries.filter(entry => entry.id == favorite.entryId)
-          // pull out the bio property only
-          //let singleArrayOfSentences = []
-          favoritedEntries.forEach(favorite => {
-            // split at "." for each
-            let splitBio = favorite.bio.split(".")
-            // push each sentence into a single array
-            // splitBio.forEach(sentence => singleArrayOfSentences.push(sentence))
-            // https://javascript.plainenglish.io/three-ways-to-merge-arrays-in-javascript-27cef85fe67b
-            for (let i = 0, len = splitBio.length; i < len ; i++) {
-              singleArrayOfSentences.push(splitBio[i])
-            }
-          });
-          // BUG: How do I access single array of sentences outside of entries and favorites.forEach scope to avoid duplicate logs?
-          console.log(singleArrayOfSentences);
-          // randomize the sentences
-          // display to participant
-          generatePoem(singleArrayOfSentences)
+      for (var i = 0; i < favorites.length; i++) {
+        favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entryId)
+        favoritedEntries.forEach(entry => {
+          let splitBio = entry.bio.split(".")
+          // push each sentence into a single array
+          for (let i = 0, len = splitBio.length; i < len ; i++) {
+            singleArrayOfSentences.push(splitBio[i])
+          }
         })
-      })
-      //console.log(singleArrayOfSentences);
+      }
+      generatePoem(singleArrayOfSentences)
     }
   })
 }
@@ -212,9 +195,9 @@ function generatePoem(array) {
 function launchLibrary() {
   console.log("Welcome to the learning library!");
   console.log("Input a number for one of the following menu options");
-  // should I create a printMenu() function instead?
+  // create a printMenu() function instead?
   console.log(menu);
-  //start the prompt
+  // start the prompt
   prompt.start()
   // load the allEntries array (global variable)
   loadEntires()
@@ -249,7 +232,7 @@ function launchLibrary() {
     // Leave the Library
     if (result.input === "6") {
       console.log('You chose: ' + menu[6]);
-      console.log("Thanks for visiting our divine time machine! Keep wading in the cosmic slop. It won't be long now.")
+      console.log("You have left the library. Thank you for visiting! What have you learned? Returning to the work of Black Women Care Workers is a practice of reverance and rememberance. An act of ceromony that reminds us any freedom, joy, or love you experience within the American project is a direct result of the care of Black women.")
     }
   })
 }
