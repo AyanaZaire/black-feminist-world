@@ -73,19 +73,19 @@
   ],
   "favorites": [
     {
-      "entryId": 6,
+      "entryId": 2,
+      "profileId": 1,
+      "id": 1
+    },
+    {
+      "entryId": 5,
       "profileId": 1,
       "id": 2
     },
     {
-      "entryId": 2,
+      "entryId": 6,
       "profileId": 1,
-      "id": 4
-    },
-    {
-      "entryId": 10,
-      "profileId": 1,
-      "id": 5
+      "id": 3
     }
   ],
   "profiles": [

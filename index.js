@@ -30,20 +30,31 @@ let menu = {
     6: "Leave the Library"
 };
 
-function entryIndex() {
+function loadEntires() {
   fetch("http://localhost:3000/entries")
   .then(response => response.json())
   .then(entries => {
-    entries.forEach(entry => {
-      console.log(entry.id, entry.name);
-    })
-    console.log("If you wish to view a single entry and/or add it to your favorites, please input the corresponding number below.");
-    prompt.start();
-    prompt.get(['entry'], function (err, result) {
-      console.log('Command-line input received:');
-      viewEntry(result.entry)
-    });
+    // move conditional outside of fetch?
+    if (allEntries.length === 0) {
+      entries.forEach(entry => {
+        allEntries.push(entry)
+      })
+    } else {
+      return allEntries
+    }
   })
+}
+
+function entryIndex() {
+  allEntries.forEach(entry => {
+    console.log(entry.id, entry.name);
+  })
+  console.log("If you wish to view a single entry and/or add it to your favorites, please input the corresponding number below.");
+  prompt.start();
+  prompt.get(['entry'], function (err, result) {
+    console.log('Command-line input received:');
+    viewEntry(result.entry)
+  });
 }
 
 function viewEntry(id) {
@@ -61,7 +72,6 @@ function viewEntry(id) {
       console.log('Yes/no input received:');
       if (result.input == "yes") {
         addFavorite(entry)
-        //console.log("Entry to add to favorites in View Entry", entry);
       }
       if (result.input == "no") {
         launchLibrary()
@@ -70,7 +80,6 @@ function viewEntry(id) {
   })
 }
 
-// BUG: Possibly has to do with the nested fetch requests? Firing off duplicate console logs + data. It duplicates based on the amount of favorites in your favorites array. (Check the .forEach)
 function favoriteIndex() {
   fetch("http://localhost:3000/favorites")
   .then(response => response.json())
@@ -79,33 +88,23 @@ function favoriteIndex() {
       console.log("No favorites added yet. To add a favorite view entries below.");
       entryIndex()
     } else {
-      // BUG: Do I need to make a fetch request for each favorite? Or can I simply filter through entries or favorites array?
-      favorites.forEach(favorite => {
-        // creating a class for entries would get rid of this duplicate fetch to entries?
-        fetch("http://localhost:3000/entries")
-        .then(response => response.json())
-        .then (entries => {
-          // would a forEach + if statement work better than filter?
-          let favoritedEntries = entries.filter(entry => entry.id == favorite.entryId)
-          favoritedEntries.forEach(entry => {
-            console.log('\n' +
-              "Entry ID:", entry.id + '\n' +
-              "Name:", entry.name + '\n' +
-              "Year Born:", entry.born + '\n' +
-              "Birthplace:", entry.birthplace + '\n' +
-              "Bio:", entry.bio + '\n');
-          })
-          // BUG: take out of forEach scope
-          removeFavorite(favorites)
+      for (var i = 0; i < favorites.length; i++) {
+        favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entryId)
+        favoritedEntries.forEach(entry => {
+          console.log('\n' +
+            "Entry ID:", entry.id + '\n' +
+            "Name:", entry.name + '\n' +
+            "Year Born:", entry.born + '\n' +
+            "Birthplace:", entry.birthplace + '\n' +
+            "Bio:", entry.bio + '\n');
         })
-      })
+      }
+      removeFavorite(favorites)
     }
   })
 }
 
-
 function removeFavorite(favorites) {
-  // console.log("Favorites in remove favorite", favorites);
   console.log("If you would like to remove an entry from your favorites, please input the corresponding Entry ID below. If you would like to return to main menu type, menu");
   prompt.start();
   prompt.get(['entry'], function (err, result) {
@@ -113,11 +112,8 @@ function removeFavorite(favorites) {
     if (result.entry == "menu") {
       launchLibrary()
     } else {
-      // console.log("Favorites in remove favorite", favorites);
       let removedFavorites = favorites.filter(favorite => favorite.entryId == result.entry)
-      // console.log("Removed Favorites", removedFavorites);
       let removedFavorite = removedFavorites[0]
-      // console.log("Removed Favorite", removedFavorite);
       fetch(`http://localhost:3000/favorites/${removedFavorite.id}`, {
         method: "DELETE",
         headers: {"Content-Type": "application/json"},
@@ -125,20 +121,18 @@ function removeFavorite(favorites) {
       })
       .then(response => response.json())
       .then(deletedFavorite => {
-        console.log("Entry deleted:", deletedFavorite);
-        launchLibrary()
+        console.log("Entry removed from favorites successfully! View current favorites below:");
+        favoriteIndex()
       })
     }
   });
 }
 
 function addFavorite(entry) {
-  //console.log("Entry to add to favorites in AddFavorite", entry);
   let favorite = {
     entryId: entry.id,
     profileId: 1
   }
-  //console.log("Favorite object", favorite);
   fetch("http://localhost:3000/favorites", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
@@ -184,7 +178,7 @@ function splitFavoriteBios() {
           // BUG: How do I access single array of sentences outside of entries and favorites.forEach scope to avoid duplicate logs?
           console.log(singleArrayOfSentences);
           // randomize the sentences
-          // display to participant 
+          // display to participant
           generatePoem(singleArrayOfSentences)
         })
       })
@@ -222,8 +216,9 @@ function launchLibrary() {
   console.log(menu);
   //start the prompt
   prompt.start()
-
-  // display the main menu and ask the user what they would like to do
+  // load the allEntries array (global variable)
+  loadEntires()
+  // display the main menu, asking the participant what they would like to do
   prompt.get(['input'], function (err, result) {
     console.log('Command-line input received.');
     // View Library
@@ -259,4 +254,5 @@ function launchLibrary() {
   })
 }
 
+var allEntries = []
 launchLibrary()
