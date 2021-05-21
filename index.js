@@ -1,23 +1,3 @@
-/*  A learning library stocked with Black Women's Care Work in Javascript V8 3.14.5.9
-Execute using NodeJS
-
-STEP 1
-Install external modules
-1. install JSON server: npm install -g json-server (https://www.npmjs.com/package/json-server#getting-started)
-2. install prompt: npm install prompt (https://github.com/flatiron/prompt)
-3. install node-fetch: npm i node-fetch --save (https://github.com/node-fetch/node-fetch)
-
-STEP 2
-Run the Server (Seed data stored using JSON server)
-1. See db.json file in this directory
-2. Navigate to this project's directory in your console
-3. Paste the following in the console to start the JSON server: json-server --watch db.json
-
-STEP 3
-1. While the server is running in the console, open another tab in the same project directory
-2. Paste the following in the console to launch the library: node index.js
-*/
-
 const prompt = require('prompt');
 const fetch = require("node-fetch");
 
@@ -232,7 +212,7 @@ function launchLibrary() {
     // Leave the Library
     if (result.input === "6") {
       console.log('You chose: ' + menu[6]);
-      console.log("You have left the library. Thank you for visiting! What have you learned? Returning to the work of Black Women Care Workers is a practice of reverance and rememberance. An act of ceromony that reminds us any freedom, joy, or love you experience within the American project is a direct result of the care of Black women.")
+      console.log("You have left the library. Thank you for visiting! What have you learned? Returning to the work of Black Women Care Workers is a practice of reverence and remembrance. An act of ceromony that reminds us any freedom, joy, or love you experience within the American project is a direct result of the care of Black women.")
     }
   })
 }
