@@ -1,3 +1,14 @@
+/*
+POSSIBLE REFACTORS:
+- Handle all incorrect responses
+- Implement filter on line 47
+- Create profile functionality/"Log In Participant"
+- "Title" the poem with the names of the archive (Ex: “Aretha Franklin, Frances Thompson, and Saidiya Hartman”
+)
+- Create entries class
+- Create more "sentence analytics" for more dynamic poetry
+*/
+
 const prompt = require('prompt');
 const fetch = require("node-fetch");
 
