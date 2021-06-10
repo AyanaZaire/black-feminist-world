@@ -124,7 +124,7 @@
     {
       "id": 12,
       "name": "Tarana Burke",
-      "born": "1973",
+      "born": 1973,
       "birthplace": "Bronx, New York, NY",
       "bio": "Ten years after that conversation, Ms. Burke created Just Be Inc., a nonprofit organization that helps victims of sexual harassment and assault. She sought out the resources that she had not found readily available to her 10 years before and committed herself to being there for people who had been abused.\nAnd she gave her movement a name: Me Too. “I think it is selfish for me to try to frame Me Too as something that I own,” she said. “It is bigger than me and bigger than Alyssa Milano. Neither one of us should be centered in this work. This is about survivors.”",
       "source": "https://www.nytimes.com/2017/10/20/us/me-too-movement-tarana-burke.html",
@@ -168,7 +168,7 @@
     {
       "id": 16,
       "name": "United Order of the Tents",
-      "born": "1867",
+      "born": 1867,
       "birthplace": "Norfolk, VA",
       "bio": "This is the first night of the 150th anniversary celebration for the United Order of Tents, a secret society of black women. Annette Richter is the great-great-granddaughter of Annetta M. Lane, the enslaved woman who founded this order in 1867. I am not sure if you have ever been graciously but firmly pushed out of line by elegantly dressed black senior citizens, but I can tell you the experience is nothing short of affirming. \"Excuse me, dear.\" \"Darling, could I just?\" they say, and Annette is surrounded, and I realize my chance to talk with her will have to come another day. This is a moment that exemplifies the spirit of the Tents. It is an organization made up of dozens of chapters all over the South and Northeast, with hundreds of members currently. It was founded on the ideals of freedom, independence, and self-autonomy, but it is also firmly rooted in the practical. The Tents is a massively successful, wonderfully efficient community self-help organization that has operated without outside help for over 150 years. But because it is run by and for black women — black churchwomen — it is largely unknown and in fact was deliberately kept secret for much of its existence. Annetta M. Lane and Harriet R. Taylor, two black women from Virginia, founded this order in 1867. Annetta was enslaved in Virginia and, according to her family's history, was a nurse on her plantation. This role meant that she moved both among the white enslavers in the main house and among the black people the family enslaved in the fields. Such a role meant she was valuable to the white slavers, and it also meant she could transmit information and care to those enslaved. The sermon ends with this litany of prayer: \"Pray until domestic violence ends. Pray until there's liberty and justice for all. Pray until there is a cure for all cancers. Pray until racism ends. Pray until there is health care for the whole universe. Pray until we're all together as one.",
       "source": "https://www.lennyletter.com/story/secrets-of-the-south",
@@ -223,7 +223,7 @@
     {
       "id": 21,
       "name": "N.K. Jemisin",
-      "born": "1972 ",
+      "born": 1972,
       "birthplace": "Iowa City, IA",
       "bio": "By now Jemisin was back in her day job as a counsellor. She had a dream, of “an angry woman coming towards me with a mountain floating behind her”. It gelled with ideas she’d had since going on a Nasa-sponsored workshop for writers about astronomy, and she began to write The Fifth Season. Taking place on a planet with “one vast, unbroken continent”, the earthquake-racked Stillness, the novel opens with the “end of the world” as one man – a despised and enslaved “orogene”, who can manipulate the earth – tears a great rift through the heart of the world. Jemisin has said in the past that “it’s pretty obvious that I’m drawing on the human history of structural oppression, as well as my feelings about this moment in American history”. It won Jemisin astonishing plaudits, as well as a deal for a television series. Accepting her third Hugo, she told her audience in a winner’s speech that went viral: “This has been a hard year, hasn’t it? A hard few years. A hard century. For some of us, things have always been hard.”",
       "source": "https://www.theguardian.com/books/2020/may/02/nk-jemisin-its-easier-to-get-a-book-set-in-black-africa-published-if-youre-white",
@@ -234,7 +234,7 @@
     {
       "id": 22,
       "name": "Octavia E. Butler",
-      "born": "1947",
+      "born": 1947,
       "birthplace": "Pasadena, CA",
       "bio": "Octavia Butler’s tenth novel, “Parable of the Sower,” which was published in 1993, opens in Los Angeles in 2024. Global warming has brought drought and rising seawater. The middle class and working poor live in gated neighborhoods, where they fend off the homeless with guns and walls. Fresh water is scarce, as valuable as money. Pharmaceutical companies have created “smart drugs,” which boost mental performance, and “pyro,” a pill that gives those who take it sexual pleasure from arson. Fires are common. Police services are expensive, though few people trust the police. Public schools are being privatized, as are whole towns. In this atmosphere, a Presidential candidate named Christopher Donner is elected based on his promises to dismantle government programs and bring back jobs.",
       "source": "https://www.newyorker.com/books/second-read/octavia-butlers-prescient-vision-of-a-zealot-elected-to-make-america-great-again",
@@ -245,8 +245,8 @@
     {
       "id": 23,
       "name": "Audre Lorde",
-      "born": "1934",
-      "birthplace": "",
+      "born": 1934,
+      "birthplace": "Harlem, New York, NY",
       "bio": "First published in 1980, The Cancer Journals moves between the intimate, unfiltered inner dialogue of journal entries like this one, from March 1st, 1979: “It is such an effort to find decent food in this place, not to just give up and eat the old poison”; and a reading of breast cancer and the industry that surrounds it through the lens of cultural criticism.\nThat is to say, Lorde moves deftly between an emphasis upon private survival and collective determination. If it was ever uncertain, this volume makes clear that even at its most intimate and vulnerable, Lorde’s work is a literature of conscience and revolution.\nAfter her mastectomy, Lorde chose never to hide the fact of her missing breast. Repeatedly, she refused to wear the “wad of lambswool pressed into a pale pink breast-shaped pad” pushed upon her by nurses and medical counselors. And repeatedly, she was scolded for posing a threat to cancer patient “morale.”",
       "source": "https://lithub.com/how-audre-lordes-experience-of-breast-cancer-fortified-her-revolutionary-politics/",
       "author": "Tracy K. Smith",
@@ -278,7 +278,7 @@
     {
       "id": 26,
       "name": "Kimberlé Crenshaw",
-      "born": "1959",
+      "born": 1959,
       "birthplace": "Canton, OH",
       "bio": "For Crenshaw, who is now one of the most influential black feminist legal theorists in the US, Hill’s case cemented her idea of “intersectionality”, set out in a paper two years before the hearing. The idea suggests that different forms of discrimination – such as sexism and racism – can overlap and compound each other in just this way. At the time of Hill’s case, Crenshaw was writing another paper, Mapping the Margins, on the erasure of black women’s history of being sexually harassed and abused. The Hill case showed the result of the fact that sexual harassment had largely only been discussed in relation to white women.",
       "source": "https://www.theguardian.com/society/2020/nov/12/kimberle-crenshaw-the-woman-who-revolutionised-feminism-and-landed-at-the-heart-of-the-culture-wars",
@@ -344,7 +344,7 @@
     {
       "id": 32,
       "name": "Nina Simone",
-      "born": "1933",
+      "born": 1933,
       "birthplace": "",
       "bio": "Although she was not openly bisexual, Simone was rumored to have relationships with women, and wrote of her attraction to both genders in her diary. She married New York police detective Andrew Stroud, who later became her manager, in 1961. The following year, they welcomed their daughter Lisa.\nThe assassination of Medgar Evers and the bombing the 16th Street Baptist church in Birmingham, Alabama, killing four little girls, led Simone to create music to express the pain of the period. She produced and created such protest songs as “Mississippi Goddam,” “Old Jim Crow,” “Why (The King of Love is Dead),” and “Young, Gifted and Black.” The latter two songs were dedicated to her friends, Dr. Martin Luther King Jr. and Lorraine Hansberry, whose lives were tragically cut short.\nAfter lackluster sales of subsequent albums and cold reception from her record company, Simone believed she was being punished for her activism. Simone left Stroud and the U.S. in 1970, and sought refuge in various locations around the world including in Europe, Africa, and the Caribbean. She lived abroad for several years, finally returning to the U.S. in 1995 to reclaim music royalties owed to her after the release of her music without her permission. She performed and released music regularly until her health declined. Simone lost her battle with breast cancer on April 21, 2003, in her adopted home of Carry-le-Rouet, France, at age 70.",
       "source": "https://nmaahc.si.edu/LGBTQ/nina-simone",
@@ -355,7 +355,7 @@
     {
       "id": 33,
       "name": "Alice Coltrane",
-      "born": "1937",
+      "born": 1937,
       "birthplace": "Detroit, MI",
       "bio": "Though once a relatively obscure part of the musician’s history, Alice Coltrane’s worship recordings have become an increasingly frequent topic of discussion in recent years. With Vedic chants punctuated by handclaps and tambourines, these songs differ from the Indian and Nepalese devotional music in their use of celestial, star-spanning synthesiser, organs, strings, and drones, Western melodies and composition, and vocals tempered by the Detroit church choirs of her youth. It’s music that truly sounds like nothing else, born from her need to create for and with her spiritual community. It’s music that only she could have made.",
       "source": "https://www.dazeddigital.com/music/article/36120/1/alice-coltrane-devotional-music",
@@ -377,7 +377,7 @@
     {
       "id": 35,
       "name": "Betye Saar",
-      "born": "1926",
+      "born": 1926,
       "birthplace": "Los Angeles, CA",
       "bio": "In Betye Saar’s work, time is cyclical. History and experiences, emotion and knowledge travel across time and back again, linking the artist and viewers of her work with generations of people who came before them. This is made explicit in her commitment to certain themes, imagery, and objects, and her continual reinvention of them over decades. “I can no longer separate the work by saying this deals with the occult and this deals with shamanism or this deals with so and so…. It’s all together and it’s just my work,” she said in 1989. The artist has also repeatedly turned to her family and their history as sources for her work. “Keep for Old Memiors” (1976) includes fragments of letters and photographs saved by the artist’s great aunt Hattie, framed by a pair of women’s gloves that suggest, among other things, the tactility of accessing a physical record of one’s life. The intimacy and scale of Saar’s work encourages a personal connection to the artist and her experience. “To me the trick is to seduce the viewer. If you can get the viewer to look at a work of art, then you might be able to give them some sort of message.” Over the course of her now six-decade career, Saar has continued to make work that honors or critiques the familiar and mines the unknown. “It may not be possible to convey to someone else the mysterious transforming gifts by which dreams, memory, and experience become art. But I like to think that I can try.”",
       "source": "https://www.moma.org/artists/5102",
@@ -399,7 +399,7 @@
     {
       "id": 37,
       "name": "Sojourner Truth",
-      "born": "1797",
+      "born": 1797,
       "birthplace": "New York",
       "bio": "Born Isabella Baumfree to a family of slaves in Ulster County, New York, Sojourner Truth sits for one of the war’s most iconic portraits in an anonymous photographer’s studio, likely in Detroit. The sixty-seven-year-old abolitionist, who never learned to read or write, pauses from her knitting and looks pensively at the camera. She was not only an antislavery activist and colleague of Frederick Douglass but also a memoirist and committed feminist, who shows herself engaged in the dignity of women’s work. More than most sitters, Sojourner Truth is both the actor in the picture’s drama and its author, and she used the card mount to promote and raise money for her many causes: I Sell the Shadow to Support the Substance. SOJOURNER TRUTH.\nThe imprint on the verso features the sitter’s statement in bright red ink as well as a Michigan 1864 copyright in her name. By owning control of her image, her “shadow,” Sojourner Truth could sell it. In so doing she became one of the era’s most progressive advocates for slaves and freedmen after Emancipation, for women’s suffrage, and for the medium of photography. At a human-rights convention, Sojourner Truth commented that she “used to be sold for other people’s benefit, but now she sold herself for her own.”",
       "source": "https://www.metmuseum.org/art/collection/search/301989",
@@ -410,7 +410,7 @@
     {
       "id": 38,
       "name": "Harriet Tubman",
-      "born": "1822",
+      "born": 1822,
       "birthplace": "Dorchester County, MD",
       "bio": "They called her “Moses” for leading enslaved people in the South to freedom up North. But Harriet Tubman fought the institution of slavery well beyond her role as a conductor for the Underground Railroad. As a soldier and spy for the Union Army during the Civil War, Tubman became the first woman to lead an armed military operation in the United States in what is known as the Combahee Ferry Raid. For months, Tubman worked as a laundress, opening a wash house, and serving as a nurse, until she was given orders to form a spy ring. Tubman had proven herself invaluable at gathering clandestine information, forming allies and avoiding capture, as she led the Underground Railroad. In her new role, Tubman assumed leadership of a secret military mission in South Carolina’s low country. As the escapees ran to the shore, Black troops in rowboats transported them to the ships, but chaos ensued in the process. Tubman, who didn’t speak the region’s Gullah dialect, reportedly went on deck and sang a popular song from the abolitionist movement that calmed the group down. He wrote a story without a byline about the “She-Moses” but never mentioned Tubman’s name. He wrote that Montgomery’s “gallant band of 300 soldiers under the guidance of a Black woman, dashed into the enemies’ country, struck a bold and effective blow, destroying millions of dollars worth of commissary store, cotton and lordly dwellings, and striking terror to the heart of the rebeldom brought off bear 800 slaves and thousands of dollars worth of property, without losing a man or receiving a scratch.” Despite the mission’s success, including the recruitment of at least 100 freedmen into the Union Army, Tubman was not compensated for her efforts on the Combahee Ferry Raid. She had petitioned the government several times to be paid for her duties as a soldier. “She was denied because she was a woman,” says Larson.",
       "source": "https://www.history.com/news/harriet-tubman-combahee-ferry-raid-civil-war",
@@ -421,8 +421,8 @@
     {
       "id": 39,
       "name": "Nettrice Gaskins",
-      "born": "",
-      "birthplace": "",
+      "born": 1970,
+      "birthplace": "Baltimore, MD",
       "bio": "TVC uses three main modes of activity: reappropriation, remixing, and improvisation. Gaskins looks at each of the three modes in turn, guiding readers from research into practice. Drawing on real-world examples, she shows how TVC creates dynamic learning environments where underrepresented ethnic students feel that they belong. Students who remix computationally, for instance, have larger toolkits of computational skills with which to connect cultural practices to STEAM subjects; reappropriation offers a way to navigate cultural repertoires; improvisation is firmly rooted in cultural and creative practices. Finally, Gaskins explores an equity-oriented approach that makes a distinction between conventional or dominant pedagogical approaches and culturally relevant or responsive making methods and practices. She describes TVC habits of mind and suggests methods of instructions and projects.",
       "source": "https://www.penguinrandomhouse.com/books/675888/techno-vernacular-creativity-and-innovation-by-nettrice-r-gaskins-foreword-by-leah-buechley-afterword-by-ruha-benjamin/",
       "author": "",
@@ -432,8 +432,8 @@
     {
       "id": 40,
       "name": "Missy Elliott",
-      "born": "",
-      "birthplace": "",
+      "born": 1971,
+      "birthplace": "Portsmouth, VA",
       "bio": "Ambrose has witnessed Elliott’s approach to style and fashion firsthand. “Missy is a true visionary,” she says. “One thing that sticks out to me, whenever I’ve collaborated with Missy, is her ability to invent, receive and process creative inspiration from myself and others. Ultimately, her confidence, swag and conviction, her commitment to taking risks and pushing the boundaries, is what I believe makes her a true style icon.”\n“Missy is so personable and warm and fuzzy and confident and shy, if that makes sense?” said Ambrose. “There’s a coyness to her. When you think about the word coy, Missy is the epitome. Clever but she still knows how to work it. Since I’ve known her, for over 22 years, she’s always been that way.”\nAmbrose points to the “Lose It” music video, as an indicator of how ahead of her time Elliott has been. “We had a lot of girls dressed like boys, which is such a relevant moment as we talk about gender-bending and being gender neutral today. She was really on the pulse of that early, showing that girls can be in tank tops.”\nAmbrose believes that’s part of why Elliott’s style changed hip-hop. “We were all about body image,” she says. “No matter what size you are, you can say confidently, ‘This is who I am.’ No matter what shape or size, color or gender, it doesn’t matter.”",
       "source": "https://www.hollywoodreporter.com/news/general-news/missy-elliott-s-costume-designer-rapper-s-style-mtv-s-interactive-museum-1234265/",
       "author": "Nadia Neophytou",
@@ -443,7 +443,7 @@
     {
       "id": 41,
       "name": "Ruth Wilson Gilmore",
-      "born": "1950",
+      "born": 1950,
       "birthplace": "New Haven, CT",
       "bio": "Each of the many campaigns Gilmore worked on over the years was built from a different coalition of people who could be negatively affected by a new jail or prison. Her strategy was not to simply fight prisons directly and hope others joined in but rather to seek out groups that were already mobilized. Whether environmentalists who could be made to realize that a new prison would harm biodiversity, or local community members worried about a prison’s impact on the water table or undeliverable promises of local employment, “whatever is already there, in terms of people who are organized, that is how to direct the work,” Gilmore told me. “You have to talk to people and see what they want.” In 2004, for example, there was a measure on the Los Angeles County ballot to hire 5,000 new police officers and deputy sheriffs and to start expanding the city’s jail. Gilmore helped organize a campaign in South Central and East Los Angeles, meeting and talking to people, getting them to ask questions and to express their needs. Did the needs of neighborhood residents coincide with the needs of the Los Angeles County Sheriff’s and Police Departments? Did they want more police officers in their communities? The answer was no. The measure failed. “It was plodding work — organizing, and organizing, and organizing — but we won. We beat them back.” She got her way and has been developing the concept of carceral geography ever since, a category of scholarship she more or less single-handedly invented, which examines the complex interrelationships among landscape, natural resources, political economy, infrastructure and the policing, jailing, caging and controlling of populations. In the years since, Gilmore has shaped the thinking of many geographers, as well as generations of graduate students and activists.",
       "source": "https://www.nytimes.com/2019/04/17/magazine/prison-abolition-ruth-wilson-gilmore.html",
@@ -465,8 +465,8 @@
     {
       "id": 43,
       "name": "Xenobia Bailey",
-      "born": "",
-      "birthplace": "",
+      "born": 1955,
+      "birthplace": "Seattle, WA",
       "bio": "Xenobia Bailey is a trash alchemist, a single stitch, urban crochet aficionado, designer, artist and community activist, whose practice industrializes the visual aesthetic of “Cosmic-Funk,” practiced by African-American homemakers since Emancipation, into utilitarian “Funktional” design. Media exposure ranges from an Absolut advertisement to a design consultancy with Disney World, and a subway mosaic commission from the MTA in New York. She has shown internationally, with such institutions as Creative Time, the Sharjah Art Foundation, and numerous U.S. Embassies. Her work is held by numerous museums, as well as in academic, corporate, public and private collections.\nHer ABOG Fellowship will support Paradise Under Reconstruction, a pedagogical model that will collectively fabricate prototypes for health aids and services for the needs of African-American communities in Seattle, WA and Harlem, NY. A multigenerational, inspirational, motivational, and passionate dreamscaping and skills-building project, Paradise Under Reconstruction will bring together community homemakers, household members, adults, young adults and teens to cultivate future visions and de-traumatize and fabricate commercial utilitarian artifacts for sustainable living in their homes. Conjuring Afrofuturism through rural and urban storytelling and historical remixing, participants will also write de-traumatizing fictional historical bedtime folktales, lullabies and medicinal psycho-parables, using the inspirational environments inspired by “Funktional Artifacts.”",
       "source": "https://abladeofgrass.org/fellows/xenobia-bailey/",
       "author": "",
@@ -476,7 +476,7 @@
     {
       "id": 44,
       "name": "Sonya Renee Taylor",
-      "born": "1976",
+      "born": 1976,
       "birthplace": "",
       "bio": "“In these times, when the search for answers to the mounting injustices in our world seems to confound us, Sonya Renee Taylor offers a simple but powerful place to begin: recovering our relationship with our own bodies. To build a world that works for everyone, we must first make the radical decision to love every facet of ourselves. Through lucid and courageous self-revelation, Taylor shows us how to realize the revolutionary potential of self-love. The body is not an apology’ is the mantra we should all embrace.”",
       "source": "https://www.amazon.com/Body-Not-Apology-Radical-Self-Love/dp/1626569762",
@@ -487,7 +487,7 @@
     {
       "id": 45,
       "name": "Pauli Murray",
-      "born": "1920",
+      "born": 1920,
       "birthplace": "Baltimore, MD",
       "bio": "Pauli Murray is one of the most pivotal figures in 20th century African-American civil rights history, but beyond academic circles, she is not very well known. In 1944, she graduated as the valedictorian of her Howard University law class, producing a senior thesis titled “Should the Civil Rights Cases and Plessy Be Overruled?” Trained by William Howard Hastie and Leon Ransom at Howard, Pauli Murray had been witness to their early legal strategy of combating separate but equal doctrine by forcing states to either make black institutions equal to their white counterparts or integrate white institutions, if they failed to do so. However, she argued that Plessy v. Ferguson was inherently immoral and discriminatory and should be overturned. When she brought up this argument to her classmates, she noted that her suggestion was received with “hoots of derisive laughter.” Murray coined the term “Jane Crow” to name the forms of sexist derision she frequently encountered during her time at Howard. It was the piece she co-authored in 1965 called “Jane Crow and the Law” that Ginsburg cites as so influential in her thinking about legal remedies for sex discrimination. Nearly 10 years later, in 1953, Spottswood Robinson, Thurgood Marshall and others pulled out a copy of her senior paper and used it as a guide to strategize how they would argue the Brown v. Board case. They didn’t bother to mention this until about 10 years later, when she ran into Robinson at Howard Law School. It is incredibly important to situate Murray within these lesser-known genealogies of queer and feminist black civil rights activism. The civil rights struggle demanded respectable performances of black manhood and womanhood, particularly from its heroes and heroines, and respectability meant being educated, heterosexual, married and Christian. Murray’s open lesbian relationships and her gender nonconforming identity disrupted the dictates of respectability, making it easier to erase her five decades of important intellectual and political contributions from our broader narrative of civil rights.",
       "source": "https://www.salon.com/2015/02/18/black_queer_feminist_erased_from_history_meet_the_most_important_legal_scholar_youve_likely_never_heard_of/",
@@ -498,14 +498,19 @@
   ],
   "favorites": [
     {
-      "entryId": 13,
+      "entryId": 10,
       "profileId": 1,
       "id": 1
     },
     {
-      "entryId": 11,
+      "entryId": 6,
       "profileId": 1,
       "id": 2
+    },
+    {
+      "entryId": 2,
+      "profileId": 1,
+      "id": 3
     }
   ],
   "profiles": [
