@@ -1,14 +1,3 @@
-/*
-POSSIBLE REFACTORS:
-- Handle all incorrect responses
-- Implement filter on line 47
-- Create profile functionality/"Log In Participant"
-- "Title" the poem with the names of the archive (Ex: “Aretha Franklin, Frances Thompson, and Saidiya Hartman”
-)
-- Create entries class
-- Create more "sentence analytics" for more dynamic poetry
-*/
-
 const prompt = require('prompt');
 const fetch = require("node-fetch");
 
@@ -21,7 +10,7 @@ let menu = {
     6: "Leave the Library"
 };
 
-function loadEntires() {
+function loadEntries() {
   if (allEntries.length === 0) {
     fetch("http://localhost:3000/entries")
     .then(response => response.json())
@@ -149,6 +138,7 @@ function splitFavoriteBios() {
       for (var i = 0; i < favorites.length; i++) {
         favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entryId)
         favoritedEntries.forEach(entry => {
+          console.log(entry.name, entry.id);
           let splitBio = entry.bio.split(".")
           // push each sentence into a single array
           for (let i = 0, len = splitBio.length; i < len ; i++) {
@@ -179,7 +169,7 @@ function generatePoem(array) {
     array[randomIndex] = temporaryValue;
   }
 
-  //log array
+  //log non-linear narrative
   console.log(array);
 }
 
@@ -191,7 +181,7 @@ function launchLibrary() {
   // start the prompt
   prompt.start()
   // load the allEntries array (global variable)
-  loadEntires()
+  loadEntries()
   // display the main menu, asking the participant what they would like to do
   prompt.get(['input'], function (err, result) {
     console.log('Command-line input received.');
