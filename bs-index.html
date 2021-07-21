@@ -1,134 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Black Feminist World Database</title>
   <script type="text/javascript" src="index.js"></script>
   <style>
+
+  img {
+    object-fit: cover;
+    object-position: 0 0;
+    width:150px;
+    height:150px;
+    }
+
+    .bi bi-zoom-in{
+      align-content: right;
+    }
+
+
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 550px}
+    .row.content {height: 450px}
 
     /* Set gray background color and 100% height */
     .sidenav {
+      padding-top: 20px;
       background-color: #f1f1f1;
       height: 100%;
     }
 
-    /* On small screens, set height to 'auto' for the grid */
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
-      .row.content {height: auto;}
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+
     }
   </style>
 </head>
 <body>
-
-<nav class="navbar navbar-inverse visible-xs">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Black Feminist World Database</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Dashboard</a></li>
-        <li><a href="#">Age</a></li>
-        <li><a href="#">Gender</a></li>
-        <li><a href="#">Geo</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  </nav>
+</header>
+<br><br><br>
 
 <div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-3 sidenav hidden-xs">
-      <h2>Logo</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Dashboard</a></li>
-        <li><a href="#section2">Age</a></li>
-        <li><a href="#section3">Gender</a></li>
-        <li><a href="#section3">Geo</a></li>
-      </ul><br>
-    </div>
-    <br>
+  <div class="row">
 
-    <div class="col-sm-9">
-      <div class="well">
-        <h4>Dashboard</h4>
-        <p>Some text..</p>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Users</h4>
-            <p>1 Million</p>
-          </div>
+    <div class="col-sm-8">
+      <h1 class="text-left">Index Panel</h1><br>
+        <div class="row row-cols-1 row-cols-md-4 g-4" id="index-panel">
+
         </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Pages</h4>
-            <p>100 Million</p>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Sessions</h4>
-            <p>10 Million</p>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Bounce</h4>
-            <p>30%</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-            <p>Text</p>
-            <p>Text</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="well">
-            <p>Text</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p>
-          </div>
-        </div>
-      </div>
+    </div>
+
+    <div class="col-sm-4" id="show-panel">
+      <h1>Show Panel</h1>
     </div>
   </div>
 </div>
+<br>
+
+<footer class="footer fixed-bottom mt-auto py-3 bg-dark">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+    <p>Footer Text</p>
+    <div class="" id="favorites">
+
+    </div>
+    <button type="button" name="button" id="generate-poem">Generate Poem</button>
+  </div>
+</footer>
 
 </body>
 </html>
