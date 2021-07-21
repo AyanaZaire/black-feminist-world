@@ -1,6 +1,7 @@
 ENTRIES_URL = "http://localhost:3000/entries"
 FAVORITES_URL = "http://localhost:3000/favorites/"
 var allEntries = []
+var authors = []
 
 document.addEventListener("DOMContentLoaded", () => {
   //console.log("We live");
@@ -35,7 +36,7 @@ function loadEntries() {
                <i class="bi bi-plus-circle" data-class="add-to-favorites" id=${entry.id}></i>
              </div>
              <div class="col-md-3 ms-auto">
-               <i class="bi bi-arrows-fullscreen"></i>
+               <i class="bi bi-arrows-fullscreen" data-class="show-button" id=${entry.id}></i>
              </div>
            </div>
           </div>
@@ -83,7 +84,6 @@ function favoriteIndex() {
       var favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entryId)
       let favoritesDiv = document.getElementById("favorites")
       favoritedEntries.forEach(entry => {
-        console.log(entry.id, favorites[i].id);
         favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light" data-class="remove-button" id=${favorites[i].id}><i class="bi bi-x-circle"></i> ${entry.name}</button>  `
       })
     }
@@ -93,7 +93,32 @@ function favoriteIndex() {
   })
 }
 
+function showEntryHandler() {
+  document.addEventListener("click", () => {
+    if (event.target.dataset.class == "show-button") {
+      showEntry(event.target.id);
+    }
+  })
+}
 
+function showEntry(id) {
+  let entryToShow = allEntries.filter(entry => entry.id == id)
+  console.log(entryToShow[0]);
+  let showPanel = document.getElementById("show-panel")
+  let singleEntry =
+  `<br>
+  <div class="clearfix">
+    <img src="${entryToShow[0].image}" class="col-md-4 float-md-start" alt="${entryToShow[0].name}" style="margin-right: 20px;">
+    <div >
+      <h5 class="card-title">${entryToShow[0].name}</h5>
+      <p class="card-text"><small class="text-muted">${entryToShow[0].birthplace} — ${entryToShow[0].born}</small></p>
+      <p>${entryToShow[0].bio}</p>
+      <a href="${entryToShow[0].source}"><small class="text-muted">Source</small></a>
+    </div>
+  </div>
+`
+  showPanel.innerHTML = singleEntry
+}
 
 function removeFavoriteHandler(favorites) {
   document.addEventListener("click", () => {
@@ -132,6 +157,7 @@ function splitFavoriteBios() {
           favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entryId)
           favoritedEntries.forEach(entry => {
             console.log(entry.name, entry.id);
+            authors.push(entry)
             let splitBio = entry.bio.split(".")
             // push each sentence into a single array
             for (let i = 0, len = splitBio.length; i < len ; i++) {
@@ -168,6 +194,11 @@ function generatePoem(array) {
 }
 
 function renderPoem(array) {
-  let poemDiv = document.getElementById("poem-div")
-  poemDiv.innerText = array
+  let showPanel = document.getElementById("show-panel")
+  let authorsDiv = document.getElementById("authors")
+  let printButton = `<br><br><button onclick="window.print()">Print</button>`
+  authors.forEach(entry => {
+    authorsDiv.innerHTML += `<h5>${entry.name} (${entry.born}),</h5>`
+  })
+  showPanel.innerHTML = array + printButton
 }

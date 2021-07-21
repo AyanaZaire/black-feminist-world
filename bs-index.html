@@ -66,6 +66,23 @@
       }
 
     }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #index-panel{
+        display: none;
+      }
+      #section-to-print, #section-to-print * {
+        visibility: visible;
+      }
+      #section-to-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -104,14 +121,16 @@
   <div class="row">
 
     <div class="col-sm-8">
-      <h1 class="text-left">Index Panel</h1><br>
+      <br>
         <div class="row row-cols-1 row-cols-md-4 g-4" id="index-panel">
 
         </div>
     </div>
 
-    <div class="col-sm-4" id="show-panel">
-      <h1>Show Panel</h1>
+    <div class="col-sm-4" id="section-to-print">
+      <div id="authors"></div>
+      <br>
+      <div id="show-panel"></div>
     </div>
   </div>
 </div>
