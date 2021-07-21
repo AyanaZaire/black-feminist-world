@@ -496,23 +496,7 @@
       "image": "https://d2w9rnfcy7mm78.cloudfront.net/12249480/original_8162897e97d4337cb75974a668b61cb6.jpg?1623588618?bc=0"
     }
   ],
-  "favorites": [
-    {
-      "entryId": 6,
-      "profileId": 1,
-      "id": 1
-    },
-    {
-      "entryId": 11,
-      "profileId": 1,
-      "id": 2
-    },
-    {
-      "entryId": 10,
-      "profileId": 1,
-      "id": 3
-    }
-  ],
+  "favorites": [],
   "profiles": [
     {
       "id": 1,
