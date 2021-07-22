@@ -102,6 +102,8 @@ function showEntryHandler() {
 }
 
 function showEntry(id) {
+  let authorsDiv = document.getElementById("authors")
+  authorsDiv.innerHTML = ""
   let entryToShow = allEntries.filter(entry => entry.id == id)
   console.log(entryToShow[0]);
   let showPanel = document.getElementById("show-panel")
@@ -196,6 +198,7 @@ function generatePoem(array) {
 function renderPoem(array) {
   let showPanel = document.getElementById("show-panel")
   let authorsDiv = document.getElementById("authors")
+
   let printButton = `<br><br><button onclick="window.print()">Print</button>`
   authors.forEach(entry => {
     authorsDiv.innerHTML += `<h5>${entry.name} (${entry.born}),</h5>`
