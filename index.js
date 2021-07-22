@@ -18,15 +18,15 @@ function loadEntries() {
     entries.forEach(entry => {
       allEntries.push(entry)
       let entryBioToTrim = entry.bio
-      let maxLength = 20
+      let maxLength = 50
       let trimmedBio = entryBioToTrim.substr(0, maxLength)
       let card =
       `<div class="col">
-        <div class="card h-100">
+        <div class="card h-100 border-light" style="background-color:black;">
           <img src="${entry.image}" class="card-img-top" alt="${entry.name}">
           <div class="card-body">
             <h5 class="card-title">${entry.name}</h5>
-            <p class="card-text"><small class="text-muted">${entry.born}</small></p>
+            <p class="card-text"><small>${entry.born}</small></p>
             <p class="card-text">${trimmedBio}...</p>
           </div>
           <div class="card-footer">
@@ -113,9 +113,9 @@ function showEntry(id) {
     <img src="${entryToShow[0].image}" class="col-md-4 float-md-start" alt="${entryToShow[0].name}" style="margin-right: 20px;">
     <div >
       <h5 class="card-title">${entryToShow[0].name}</h5>
-      <p class="card-text"><small class="text-muted">${entryToShow[0].birthplace} — ${entryToShow[0].born}</small></p>
+      <p class="card-text"><small>${entryToShow[0].birthplace} — ${entryToShow[0].born}</small></p>
       <p>${entryToShow[0].bio}</p>
-      <a href="${entryToShow[0].source}"><small class="text-muted">Source</small></a>
+      <a href="${entryToShow[0].source}"><small>by ${entryToShow[0].author}</small></a>
     </div>
   </div>
 `

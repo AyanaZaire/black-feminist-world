@@ -14,6 +14,22 @@
   <script type="text/javascript" src="index.js"></script>
   <style>
 
+   @font-face { font-family: FavoritMono; src: url('ABCFavoritMono-Light.otf'); }
+
+  /* default font-size is 16px - https://bootstrapcreative.com/bootstrap-text-sizes/ */
+  html {
+  font-size: 12px;
+  }
+
+   body {
+     background-color:black;
+     font-family: FavoritMono, sans-serif;
+   }
+
+   small, a {
+     color: #917a4f;
+   }
+
   img {
     object-fit: cover;
     object-position: 0 0;
@@ -34,6 +50,10 @@
       padding-top: 20px;
       background-color: #f1f1f1;
       height: 100%;
+    }
+
+    .navbar {
+      background-color: #000000;
     }
 
     /* Set black background color, white text and some padding */
@@ -85,11 +105,11 @@
     }
   </style>
 </head>
-<body>
+<body class="text-white">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <header>
   <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar fixed-top navbar-expand-md navbar-dark" style="background-color: #000000;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Black Feminist World Database</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,18 +118,18 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Info</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Contribute</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a class="nav-link" href="https://www.patreon.com/seedapress">Patreon</a>
           </li>
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
       </div>
     </div>
@@ -138,7 +158,7 @@
 </div>
 <br>
 
-<footer class="footer fixed-bottom mt-auto py-3 bg-dark">
+<footer class="footer fixed-bottom mt-auto py-3" style="background-color: #000000;">
   <div class="container">
     <div class="row">
      <div class="col-auto me-auto">
