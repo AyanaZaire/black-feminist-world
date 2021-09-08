@@ -291,10 +291,124 @@ function contributePanelRender() {
   let showPanel = document.getElementById("show-panel")
   let authorsDiv = document.getElementById("authors")
   authorsDiv.innerHTML = ""
+  //https://www.developerdrive.com/add-google-forms-static-site/
+  //https://youtu.be/0udw0nol6Po
   showPanel.innerHTML = `
-  <h2>Contribution Guide</h2>
+  <h2>Contribute to the Database</h2>
+  <br><br><br>
+  <p>Unlike many definitions that deploy binary language to define Black feminism, my current working definition of a Black feminist is anyone who makes the world more livable for humans, non-humans, and everything between/beyond. Black feminism can be defined as cultural work, practice, praxis, daily acts, social life, and/or care work that makes life more livable and refuses death doling practices. The definition doesn’t aim to erase the work of the Black women who planted the seeds of Black feminism. Instead this definition expands it — this ethos transcends gender, sex, binaries, and species.</p>
+  <p>If this sounds like you or someone you know, please feel free to seed a Black feminist you know and/or admire in the database through completing the form below.</p>
+  <br><br>
+  <script type="text/javascript">var submitted=false;</script>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+  onload="if(submitted) {successfulForm()}"></iframe>
+
+  <form class="row g-3" id="contribute-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSc4ky1dawhwFChf5DHV3VftjwhQAY173KGAyCMZWVrii8p6jQ/formResponse" target="hidden_iframe" onsubmit="submitted=true;">
+  <h5>Please input You Info Below</h5>
+  <div class="col-md-6">
+    <label for="your-name" class="form-label">Your Name</label>
+    <input type="text" name="entry.936939529" class="form-control" id="your-name">
+  </div>
+    <div class="col-md-6">
+      <label for="your-email" class="form-label"> Your Email</label>
+      <input type="email" name="entry.1141117242" class="form-control" id="your-email">
+    </div>
+    <br>
+    <h5>Please input Black Feminist's Info Below</h5>
+    <div class="col-md-6">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" name="entry.101020486" class="form-control" id="name">
+    </div>
+    <div class="col-6">
+      <label for="birth-place" class="form-label">Birthplace</label>
+      <input type="text" name="entry.736292077" class="form-control" id="birth-place" placeholder="Montgomery, AL">
+    </div>
+    <div class="col-6">
+      <label for="birth-year" class="form-label">Birth Year</label>
+      <input type="text" name="entry.1108668266" class="form-control" id="birth-year">
+    </div>
+    <div class="col-md-6">
+      <label for="death" class="form-label">Death Year</label>
+      <input type="text" name="entry.824143011" class="form-control" id="death" placeholder="Put N/A if still alive">
+    </div>
+    <div class="col-md-12">
+      <label for="image" class="form-label">Image URL</label>
+      <input type="text" name="entry.219552856" class="form-control" id="image" placeholder="http://image.jpg">
+    </div>
+    <div class="col-md-12">
+      <label for="entry" class="form-label">Entry Text</label>
+      <textarea type="textarea" name="entry.153088299" class="form-control" id="entry"></textarea>
+    </div>
+    <div class="col-md-6">
+      <label for="author" class="form-label">Author of Text</label>
+      <input type="text" name="entry.2085592593" class="form-control" id="author" placeholder="Who wrote/spoke it?">
+    </div>
+    <div class="col-md-6">
+      <label for="source" class="form-label">Source URL</label>
+      <input type="text" name="entry.213061223" class="form-control" id="source" placeholder="Where did you find this text?">
+    </div>
+    <div class="col-12">
+      <button type="submit" id="form-submit" class="btn btn-outline-light">Submit</button>
+    </div>
+</form>
+<br><br>
+<h5>Future Contribution Guidelines</h5>
+<br>
+<p>In the future, the Black Feminist World Database (BFWD) will be an open source project hosted and maintained via GitHub. Coming soon are contribution guidelines for how to contribute to the current BFWD GitHub repository by creating a pull request. Through creating a pull request to the Black Feminist World repository you will be able to submit an entry to the database, change the text on this page, and/or improve the code of the web app! Once you submit the pull request, we will have a chance to review it, and once/if the request is approved you would get a notification from GitHub!</p>
+<p>Look out for future demo videos on submitting an entry by making a pull request to the BFWD repo.</p>
   `
+  // contributeFormHandler()
 }
+
+function successfulForm() {
+  let showPanel = document.getElementById("show-panel")
+  let authorsDiv = document.getElementById("authors")
+  authorsDiv.innerHTML = ""
+  showPanel.innerHTML =
+  `<h3>Thank you for your contribution to the Database!</h3>`
+}
+
+// function contributeFormHandler() {
+//   let form = document.querySelector("#contribute-form")
+//   form.addEventListener("submit", () => {
+//     event.preventDefault()
+//     const yourName = document.querySelector("#your-name").value
+//     const yourEmail = document.querySelector("#your-email").value
+//     const name = document.querySelector("#name")
+//     const birthPlace = document.querySelector("#birth-place")
+//     const birthYear = document.querySelector("#birth-year")
+//     const death = document.querySelector("#death")
+//     const image = document.querySelector("#image")
+//     const entry = document.querySelector("#entry")
+//     const author = document.querySelector("#author")
+//     const source = document.querySelector("#source")
+//
+//     const body = JSON.stringify({
+//       "entry.936939529": yourName,
+//       "entry.1141117242": yourEmail
+//     })
+//
+//     console.log(body);
+//
+//     const headers = {
+//       method: "POST",
+//       headers: {
+//           "Content-Type": "application/json",
+//           "Accept": "application/json"
+//       },
+//       body: body
+//     }
+//
+//     const encodedURL = encodeURI("https://docs.google.com/forms/u/0/d/e/1FAIpQLSc4ky1dawhwFChf5DHV3VftjwhQAY173KGAyCMZWVrii8p6jQ/formResponse")
+//
+//     fetch(encodedURL, headers)
+//     .then(res => res.json())
+//     .then(entry => {
+//       console.log(entry);
+//     })
+//
+//   })
+// }
 
 function aboutPanelHandler() {
   // event listener for about "link" click

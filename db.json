@@ -1271,7 +1271,7 @@
       "born": 1965,
       "death": 2021,
       "birthplace": "Detroit, MI",
-      "image": "https://ra.co/images/news/2021/k-hand-rip.jpg",
+      "image": "https://pbs.twimg.com/media/E76KgYAWYAAQxNA?format=jpg&name=medium",
       "bio": "She was sincere and she was rude and she was fantastic, full of humour. I really loved her, crazy as she could be. She lived one floor below me when I first moved to Detroit in 1993. She was always having parties, and the walls and floors were super thin so she said, ‘Well, you’re invited to all my parties because you’re going to be there by default anyways!’ I laughed. And back in the day, in those lofts, her parties were amazing! When she’d smile… it was one of those things where it was like there was so much stuff behind that smile, you kind of had to smile too. I guess, now that I think about it, I probably had a slight crush on her! But she was really welcoming to me and I appreciated that.",
       "author": "STACEY “HOTWAXX” HALE",
       "source": "https://www.dazeddigital.com/music/article/53763/1/remembering-k-hand-the-detroit-trailblazer-who-did-it-her-way"
@@ -1431,23 +1431,7 @@
       "source": "https://saintheron.com/"
     }
   ],
-  "favorites": [
-    {
-      "entryId": 3,
-      "profileId": 1,
-      "id": 1
-    },
-    {
-      "entryId": 2,
-      "profileId": 1,
-      "id": 2
-    },
-    {
-      "entryId": 1,
-      "profileId": 1,
-      "id": 3
-    }
-  ],
+  "favorites": [],
   "profiles": [
     {
       "id": 1,
