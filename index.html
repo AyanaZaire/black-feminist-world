@@ -30,16 +30,16 @@
      color: #917a4f;
    }
 
-  img {
+  .show-img {
     object-fit: cover;
     object-position: 0 0;
     width:150px;
     height:150px;
     }
 
-    .bi bi-zoom-in{
+    /* .bi bi-zoom-in{
       align-content: right;
-    }
+    } */
 
 
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -56,11 +56,27 @@
       background-color: #000000;
     }
 
+    /* Fixed show panel */
+    .fixed-panel {
+      position: fixed;
+      overflow-y: scroll;
+      top: 50px;
+      bottom: 100px;
+    }
+
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
+    }
+
+    .btn{
+      margin: 3px;
+    }
+
+    #favorites {
+      padding-bottom: 20px;
     }
 
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -69,7 +85,14 @@
         height: auto;
         padding: 15px;
       }
-      .row.content {height:auto;}
+
+      .row.content {
+        height: auto;
+      }
+
+      .fixed-panel{
+        background-color: #000;
+      }
     }
 
     .bd-placeholder-img {
@@ -117,11 +140,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Info</a>
+          <li class="nav-item" id="about-link">
+            <a class="nav-link" id="about-link" href="#">Info</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contribute</a>
+          <li class="nav-item" id="contribute-link">
+            <a class="nav-link" id="contribute-link" href="#">Contribute</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://www.patreon.com/seedapress">Patreon</a>
@@ -148,7 +171,7 @@
     </div>
 
     <div class="col-sm-4">
-      <div id="section-to-print">
+      <div id="section-to-print" class="fixed-panel">
         <div id="authors"></div>
         <br>
         <div id="show-panel"></div>
@@ -156,7 +179,7 @@
     </div>
   </div>
 </div>
-<br>
+<br><br><br><br>
 
 <footer class="footer fixed-bottom mt-auto py-3" style="background-color: #000000;">
   <div class="container">
@@ -167,7 +190,17 @@
        </div>
      </div>
      <div class="col-auto">
-       <button type="button" class="btn btn-outline-light" id="generate-poem">Generate Poem</button>
+       <div class="input-group">
+        <select class="custom-select" id="choose-algorithm">
+          <option selected id="choose">Choose An Algorithm</option>
+          <option value="1" id="naive">Naïve Shuffle </option>
+          <option value="2" id="quick">Quick Sort</option>
+          <option value="3" id="fisher">Fisher–Yates Shuffle</option>
+        </select>
+        <div class="input-group-append">
+          <button class="btn btn-outline-light" type="button" id="generate-poem">Generate Narrative</button>
+        </div>
+      </div>
      </div>
    </div>
   </div>
