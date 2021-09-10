@@ -1,23 +1,24 @@
-ENTRIES_URL = "http://localhost:3000/entries"
-FAVORITES_URL = "http://localhost:3000/favorites/"
+ENTRIES_URL = "http://localhost:3000/api/v1/entries/"
+FAVORITES_URL = "http://localhost:3000/api/v1/favorites/"
 var allEntries = []
 var authors = []
 var arrayOfSentences = []
+var submitted=false;
 
 document.addEventListener("DOMContentLoaded", () => {
   //console.log("We live");
   loadEntries()
-  favoriteIndex()
   addToFavoritesHandler()
   aboutPanelHandler()
   contributePanelHandler()
+  searchHandler()
+
 })
 
 function loadEntries() {
   fetch(ENTRIES_URL)
   .then(resp => resp.json())
   .then(entries => {
-    //console.log(entries);
     let entriesList = document.getElementById("index-panel")
     //console.log(entriesList);
     entries.forEach(entry => {
@@ -50,6 +51,7 @@ function loadEntries() {
 
       entriesList.innerHTML += card
     })
+    favoriteIndex()
   })
 }
 
@@ -64,7 +66,7 @@ function addToFavoritesHandler() {
 }
 
 function addToFavorites(entryId) {
-  let data = {entryId: entryId, profileId: 1}
+  let data = {entry_id: entryId}
   fetch(FAVORITES_URL, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
@@ -72,7 +74,8 @@ function addToFavorites(entryId) {
   })
   .then(response => response.json())
   .then(favorite => {
-    var favoritedEntry = allEntries.filter(entry => entry.id == favorite.entryId)
+    console.log(favorite);
+    var favoritedEntry = allEntries.filter(entry => entry.id == favorite.entry_id)
     let favoritesDiv = document.getElementById("favorites")
     favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light fav-btn" data-class="remove-button" id=${favorite.id}><i class="bi bi-x-circle"></i> ${favoritedEntry[0].name}</button>  `
     //splitFavoriteBios()
@@ -85,7 +88,9 @@ function favoriteIndex() {
   .then(favorites => {
     console.log("favorites:", favorites);
     for (var i = 0; i < favorites.length; i++) {
-      var favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entryId)
+      var favoritedEntries = allEntries.filter(entry => {
+        return entry.id == favorites[i].entry_id
+      })
       let favoritesDiv = document.getElementById("favorites")
       favoritedEntries.forEach(entry => {
         favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light fav-btn" data-class="remove-button" id=${favorites[i].id}><i class="bi bi-x-circle"></i> ${entry.name}</button>`
@@ -144,13 +149,58 @@ function removeFavorite(favorites, button, id) {
   .then(response => response.json())
   .then(favorite => {
     button.parentNode.removeChild(button)
+    favoriteIndex()
+  })
+}
+
+function searchHandler() {
+  let searchButton = document.getElementById("search-button")
+  searchButton.addEventListener("click", () => {
+    event.preventDefault()
+    let input = document.getElementById("search-input").value.toLowerCase()
+    let results = allEntries.filter(entry => {
+      let lowerCaseName = entry.name.toLowerCase()
+      return lowerCaseName.includes(input)
+    })
+    let entriesList = document.getElementById("index-panel")
+    entriesList.innerHTML = ""
+    results.forEach(entry => {
+      //allEntries.push(entry)
+      let entryBioToTrim = entry.bio
+      let maxLength = 120
+      let trimmedBio = entryBioToTrim.substr(0, maxLength)
+      let card =
+      `<div class="col">
+        <div class="card h-100 border-light" style="background-color:black;">
+          <img src="${entry.image}" class="card-img-top" alt="${entry.name}">
+          <div class="card-body">
+            <h5 class="card-title">${entry.name}<sup>${entry.id}</sup></h5>
+            <p class="card-text"><small>b. ${entry.born}</small></p>
+            <p class="card-text">${trimmedBio}...</p>
+          </div>
+          <div class="card-footer">
+            <div class="row" id="plus-and-zoom">
+             <div class="col-6">
+               <i class="bi bi-plus-circle" data-class="add-to-favorites" id=${entry.id}></i>
+             </div>
+             <div class="col-6 text-end">
+               <i class="bi bi-arrows-fullscreen" data-class="show-button" id=${entry.id}></i>
+             </div>
+           </div>
+          </div>
+          </div>
+
+      </div>`
+
+      entriesList.innerHTML += card
+    })
   })
 }
 
 function splitFavoriteBios() {
   //let poemButton = document.getElementById("generate-poem")
   //poemButton.addEventListener("click", () => {
-    fetch("http://localhost:3000/favorites")
+    fetch(FAVORITES_URL)
     .then(response => response.json())
     .then(favorites => {
       // if (favorites.length === 0) {
@@ -159,7 +209,7 @@ function splitFavoriteBios() {
       // } else {
         var singleArrayOfSentences = []
         for (var i = 0; i < favorites.length; i++) {
-          favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entryId)
+          favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entry_id)
           favoritedEntries.forEach(entry => {
             //console.log(entry.name, entry.id);
             authors.push(entry)
@@ -171,7 +221,7 @@ function splitFavoriteBios() {
           })
         }
         var arrayOfSentences = singleArrayOfSentences
-        console.log("in split bios", arrayOfSentences);
+        //console.log("in split bios", arrayOfSentences);
         //fisherYates(singleArrayOfSentences)
         algorithmHandler(arrayOfSentences)
       //}
@@ -253,7 +303,8 @@ function renderPoem(array) {
       //take print button out of "section to print" div
       let printButton = `<br><br><button onclick="window.print()">Print</button>`
       authors.forEach(entry => {
-        authorsDiv.innerHTML += `<h5>${entry.name}<sup>${entry.id}</sup> (b.${entry.born}),</h5>`
+        authorsDiv.innerHTML +=
+        `<h5>${entry.name}<sup>${entry.id}</sup> (b.${entry.born}),</h5>`
       })
       showPanel.innerHTML = array + printButton
     //}
@@ -262,7 +313,7 @@ function renderPoem(array) {
 
 function algorithmHandler(array) {
   let select = document.getElementById("choose-algorithm")
-  console.log(select);
+  //console.log(select);
   select.addEventListener("change", () => {
     if (event.target.id == "choose-algorithm") {
       console.log("in choose algo");
@@ -306,8 +357,7 @@ function contributePanelRender() {
   <br><br><br>
   <p>Unlike many definitions that deploy binary language to define Black feminism, my current working definition of a Black feminist is anyone who makes the world more livable for humans, non-humans, and everything between/beyond. Black feminism can be defined as cultural work, practice, praxis, daily acts, social life, and/or care work that makes life more livable and refuses death doling practices. The definition doesn’t aim to erase the work of the Black women who planted the seeds of Black feminism. Instead this definition expands it — this ethos transcends gender, sex, binaries, and species.</p>
   <p>If this sounds like you or someone you know, please feel free to seed a Black feminist you know and/or admire in the database through completing the form below.</p>
-  <br><br>
-  <script type="text/javascript">var submitted=false;</script>
+  <script type="text/javascript"></script>
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
   onload="if(submitted) {successfulForm()}"></iframe>
 
