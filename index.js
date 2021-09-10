@@ -1,5 +1,5 @@
-ENTRIES_URL = "http://localhost:3000/api/v1/entries/"
-FAVORITES_URL = "http://localhost:3000/api/v1/favorites/"
+ENTRIES_URL = "https://bfwd-backend.herokuapp.com/api/v1/entries/"
+FAVORITES_URL = "https://bfwd-backend.herokuapp.com/api/v1/favorites/"
 var allEntries = []
 var authors = []
 var arrayOfSentences = []
