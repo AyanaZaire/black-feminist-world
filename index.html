@@ -24,6 +24,10 @@
    body {
      background-color:black;
      font-family: FavoritMono, sans-serif;
+     padding: 10px;
+     min-height: 400px;
+     margin-bottom: 100px;
+     clear: both;
    }
 
    small, a {
@@ -56,12 +60,18 @@
       background-color: #000000;
     }
 
+    .fav-btn {
+      margin: 5px;
+    }
+
     /* Fixed show panel */
     .fixed-panel {
       position: fixed;
       overflow-y: scroll;
-      top: 50px;
-      bottom: 100px;
+      top: 40px;
+      bottom: 50px;
+      padding-right: 30px;
+      display: none;
     }
 
     /* Set black background color, white text and some padding */
@@ -69,10 +79,6 @@
       background-color: #555;
       color: white;
       padding: 15px;
-    }
-
-    .btn{
-      margin: 3px;
     }
 
     #favorites {
@@ -90,23 +96,24 @@
         height: auto;
       }
 
-      .fixed-panel{
+      .fixed-panel {
         background-color: #000;
       }
+
     }
 
-    .bd-placeholder-img {
+    {/*.bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
       -webkit-user-select: none;
       -moz-user-select: none;
       user-select: none;
-    }
+    }*/}
 
     @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
+      {/*.bd-placeholder-img-lg {
         font-size: 3.5rem;
-      }
+      }*/}
 
     }
 
@@ -134,7 +141,7 @@
   <!-- Fixed navbar -->
   <nav class="navbar fixed-top navbar-expand-md navbar-dark" style="background-color: #000000;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Black Feminist World Database</a>
+      <a class="navbar-brand" href="blackfeminist.world">Black Feminist World Database</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -192,10 +199,10 @@
      <div class="col-auto">
        <div class="input-group">
         <select class="custom-select" id="choose-algorithm">
-          <option selected id="choose">Choose An Algorithm</option>
-          <option value="1" id="naive">Naïve Shuffle </option>
-          <option value="2" id="quick">Quick Sort</option>
-          <option value="3" id="fisher">Fisher–Yates Shuffle</option>
+          <option value="choose" selected id="choose">Choose An Algorithm</option>
+          <option value="naive" id="naive">Naïve Shuffle </option>
+          <option value="quick" id="quick">Quick Sort</option>
+          <option value="fisher" id="fisher">Fisher–Yates Shuffle</option>
         </select>
         <div class="input-group-append">
           <button class="btn btn-outline-light" type="button" id="generate-poem">Generate Narrative</button>

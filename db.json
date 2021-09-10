@@ -1431,7 +1431,23 @@
       "source": "https://saintheron.com/"
     }
   ],
-  "favorites": [],
+  "favorites": [
+    {
+      "entryId": 1,
+      "profileId": 1,
+      "id": 1
+    },
+    {
+      "entryId": 2,
+      "profileId": 1,
+      "id": 2
+    },
+    {
+      "entryId": 3,
+      "profileId": 1,
+      "id": 3
+    }
+  ],
   "profiles": [
     {
       "id": 1,

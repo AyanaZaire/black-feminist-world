@@ -7,6 +7,8 @@ var arrayOfSentences = []
 document.addEventListener("DOMContentLoaded", () => {
   //console.log("We live");
   loadEntries()
+  favoriteIndex()
+  addToFavoritesHandler()
   aboutPanelHandler()
   contributePanelHandler()
 })
@@ -21,25 +23,23 @@ function loadEntries() {
     entries.forEach(entry => {
       allEntries.push(entry)
       let entryBioToTrim = entry.bio
-      let maxLength = 70
+      let maxLength = 120
       let trimmedBio = entryBioToTrim.substr(0, maxLength)
       let card =
       `<div class="col">
         <div class="card h-100 border-light" style="background-color:black;">
           <img src="${entry.image}" class="card-img-top" alt="${entry.name}">
           <div class="card-body">
-            <h5 class="card-title">${entry.name}</h5>
+            <h5 class="card-title">${entry.name}<sup>${entry.id}</sup></h5>
             <p class="card-text"><small>b. ${entry.born}</small></p>
             <p class="card-text">${trimmedBio}...</p>
-            <p class="card-text"><small>ID: ${entry.id}</small></p>
           </div>
           <div class="card-footer">
-
             <div class="row" id="plus-and-zoom">
-             <div class="col-md-3">
+             <div class="col-6">
                <i class="bi bi-plus-circle" data-class="add-to-favorites" id=${entry.id}></i>
              </div>
-             <div class="col-md-3 ms-auto">
+             <div class="col-6 text-end">
                <i class="bi bi-arrows-fullscreen" data-class="show-button" id=${entry.id}></i>
              </div>
            </div>
@@ -50,8 +50,6 @@ function loadEntries() {
 
       entriesList.innerHTML += card
     })
-    favoriteIndex()
-    addToFavoritesHandler()
   })
 }
 
@@ -76,7 +74,8 @@ function addToFavorites(entryId) {
   .then(favorite => {
     var favoritedEntry = allEntries.filter(entry => entry.id == favorite.entryId)
     let favoritesDiv = document.getElementById("favorites")
-    favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light" data-class="remove-button" id=${favorite.id}><i class="bi bi-x-circle"></i> ${favoritedEntry[0].name}</button>  `
+    favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light fav-btn" data-class="remove-button" id=${favorite.id}><i class="bi bi-x-circle"></i> ${favoritedEntry[0].name}</button>  `
+    //splitFavoriteBios()
   })
 }
 
@@ -84,11 +83,12 @@ function favoriteIndex() {
   fetch(FAVORITES_URL)
   .then(resp => resp.json())
   .then(favorites => {
+    console.log("favorites:", favorites);
     for (var i = 0; i < favorites.length; i++) {
       var favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entryId)
       let favoritesDiv = document.getElementById("favorites")
       favoritedEntries.forEach(entry => {
-        favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light" data-class="remove-button" id=${favorites[i].id}><i class="bi bi-x-circle"></i> ${entry.name}</button>  `
+        favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light fav-btn" data-class="remove-button" id=${favorites[i].id}><i class="bi bi-x-circle"></i> ${entry.name}</button>`
       })
     }
     removeFavoriteHandler(favorites)
@@ -109,20 +109,18 @@ function showEntry(id) {
   let authorsDiv = document.getElementById("authors")
   authorsDiv.innerHTML = ""
   let showPanel = document.getElementById("show-panel")
+  let fixedPanel = document.getElementById('section-to-print')
+  fixedPanel.style.display = "block";
   //showPanel.innerHTML = ""
   let entryToShow = allEntries.filter(entry => entry.id == id)
   console.log(entryToShow[0]);
   let singleEntry =
   `<br>
-  <div class="clearfix">
-    <img src="${entryToShow[0].image}" class="col-md-4 float-md-start" alt="${entryToShow[0].name}" style="margin-right: 20px;">
-    <div >
+    <img src="${entryToShow[0].image}" class="col-4 float-start" alt="${entryToShow[0].name}" style="margin-right: 20px;">
       <h5 class="card-title">${entryToShow[0].name}</h5>
       <p class="card-text"><small>${entryToShow[0].birthplace} — ${entryToShow[0].born}</small></p>
       <p>${entryToShow[0].bio}</p>
       <a href="${entryToShow[0].source}"><small>by ${entryToShow[0].author}</small></a>
-    </div>
-  </div>
 `
   showPanel.innerHTML = singleEntry
 }
@@ -173,6 +171,7 @@ function splitFavoriteBios() {
           })
         }
         var arrayOfSentences = singleArrayOfSentences
+        console.log("in split bios", arrayOfSentences);
         //fisherYates(singleArrayOfSentences)
         algorithmHandler(arrayOfSentences)
       //}
@@ -199,7 +198,7 @@ function fisherYates(array) {
   }
 
   //log non-linear narrative
-  //console.log("fisher array", array);
+  console.log("fisher array", array);
   renderPoem(array)
 }
 
@@ -243,23 +242,30 @@ function naiveShuffle(array) {
 function renderPoem(array) {
   let poemButton = document.getElementById("generate-poem")
   poemButton.addEventListener("click", () => {
-    let authorsDiv = document.getElementById("authors")
-    authorsDiv.innerHTML =""
-    let showPanel = document.getElementById("show-panel")
-    //take print button out of "section to print" div
-    let printButton = `<br><br><button onclick="window.print()">Print</button>`
-    authors.forEach(entry => {
-      authorsDiv.innerHTML += `<h5>${entry.name}<sup>${entry.id}</sup> (b.${entry.born}),</h5>`
-    })
-    showPanel.innerHTML = array + printButton
+    //if (array.length == 0) {
+      //alert("Add entries to your favorites to generate a narrative <3")
+    //} else {
+      let authorsDiv = document.getElementById("authors")
+      authorsDiv.innerHTML =""
+      let showPanel = document.getElementById("show-panel")
+      let fixedPanel = document.getElementById('section-to-print')
+      fixedPanel.style.display = "block";
+      //take print button out of "section to print" div
+      let printButton = `<br><br><button onclick="window.print()">Print</button>`
+      authors.forEach(entry => {
+        authorsDiv.innerHTML += `<h5>${entry.name}<sup>${entry.id}</sup> (b.${entry.born}),</h5>`
+      })
+      showPanel.innerHTML = array + printButton
+    //}
   })
 }
 
 function algorithmHandler(array) {
-  //console.log(array);
-  document.addEventListener("change", () => {
-    console.log("changing...");
+  let select = document.getElementById("choose-algorithm")
+  console.log(select);
+  select.addEventListener("change", () => {
     if (event.target.id == "choose-algorithm") {
+      console.log("in choose algo");
       if (event.target.selectedOptions.choose) {
         console.log("choose");
       }else if (event.target.selectedOptions.fisher) {
@@ -290,6 +296,8 @@ function contributePanelHandler() {
 function contributePanelRender() {
   let showPanel = document.getElementById("show-panel")
   let authorsDiv = document.getElementById("authors")
+  let fixedPanel = document.getElementById('section-to-print')
+  fixedPanel.style.display = "block";
   authorsDiv.innerHTML = ""
   //https://www.developerdrive.com/add-google-forms-static-site/
   //https://youtu.be/0udw0nol6Po
@@ -423,6 +431,8 @@ function aboutPanelHandler() {
 function aboutPanelRender() {
   let showPanel = document.getElementById("show-panel")
   let authorsDiv = document.getElementById("authors")
+  let fixedPanel = document.getElementById('section-to-print')
+  fixedPanel.style.display = "block";
   authorsDiv.innerHTML = ""
   showPanel.innerHTML =
   `<h2>Black Feminist World Database</h2>
@@ -430,6 +440,8 @@ function aboutPanelRender() {
   <p>The <i>Black Feminist World Database</i> (BFWD) is a collection of found text regarding Black feminist world building visioning, theory, and labor throughout history. The BFWD is a website where you can publicly access the seed data used in <a href="https://www.patreon.com/seedapress"><i>Daily Seed</i></a> and generate your own non-linear narratives using a growing variety of “sorting algorithms”.</p>
   <br>
   <p>Unlike some definitions that deploy binary language to define Black feminism, my current working definition of a Black feminist is anyone who makes the world more livable for humans, non-humans, and everything between/beyond. This definition doesn't aim to erase the work of the Black women who planted the seeds of Black feminism. Instead this definition expands it — this ethos transcends gender, sex, binaries, and species. If you are Black and have made the world more livable, you might find yourself in this database and one of the Daily Seed zines. If you would like to be removed please email <a href="mailto:blackfeministworld@gmail.com">blackfeministworld@gmail.com</a> and you will be removed immediately.</p>
+  <br>
+  Want to flag a bug in the website? We appreciate it! Please send us an email <a href="mailto:blackfeministworld@gmail.com">here</a>.
   <br><br><br>
   <h2>Daily Seed by Seeda Press</h2>
   <center>
