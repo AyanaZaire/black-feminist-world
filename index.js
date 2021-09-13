@@ -1,6 +1,7 @@
 ENTRIES_URL = "https://bfwd-backend.herokuapp.com/api/v1/entries/"
 FAVORITES_URL = "https://bfwd-backend.herokuapp.com/api/v1/favorites/"
 var allEntries = []
+var allFavorites = []
 var authors = []
 var arrayOfSentences = []
 var submitted=false;
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   aboutPanelHandler()
   contributePanelHandler()
   searchHandler()
-
+  removeFavoriteHandler()
 })
 
 function loadEntries() {
@@ -58,7 +59,7 @@ function loadEntries() {
 function addToFavoritesHandler() {
   document.addEventListener("click", () => {
     if(event.target.dataset.class == "add-to-favorites") {
-      //console.log(event.target.id);
+      console.log("Add to favorites handler", event.target.id);
       let entryId = parseInt(event.target.id)
       addToFavorites(entryId)
     }
@@ -74,7 +75,8 @@ function addToFavorites(entryId) {
   })
   .then(response => response.json())
   .then(favorite => {
-    console.log(favorite);
+    console.log("favorite added:", favorite);
+    allFavorites.push(favorite)
     var favoritedEntry = allEntries.filter(entry => entry.id == favorite.entry_id)
     let favoritesDiv = document.getElementById("favorites")
     favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light fav-btn" data-class="remove-button" id=${favorite.id}><i class="bi bi-x-circle"></i> ${favoritedEntry[0].name}</button>  `
@@ -86,7 +88,7 @@ function favoriteIndex() {
   fetch(FAVORITES_URL)
   .then(resp => resp.json())
   .then(favorites => {
-    console.log("favorites:", favorites);
+    favorites.forEach(fav => {allFavorites.push(fav)});
     for (var i = 0; i < favorites.length; i++) {
       var favoritedEntries = allEntries.filter(entry => {
         return entry.id == favorites[i].entry_id
@@ -96,7 +98,6 @@ function favoriteIndex() {
         favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light fav-btn" data-class="remove-button" id=${favorites[i].id}><i class="bi bi-x-circle"></i> ${entry.name}</button>`
       })
     }
-    removeFavoriteHandler(favorites)
     splitFavoriteBios()
     showEntryHandler()
   })
@@ -130,16 +131,23 @@ function showEntry(id) {
   showPanel.innerHTML = singleEntry
 }
 
-function removeFavoriteHandler(favorites) {
+function removeFavoriteHandler() {
   document.addEventListener("click", () => {
     if (event.target.dataset.class == "remove-button") {
-      removeFavorite(favorites, event.target, event.target.id);
+      console.log("remove favorite", event.target);
+      removeFavorite(event.target, event.target.id);
     }
   })
 }
 
-function removeFavorite(favorites, button, id) {
-  let favoriteToRemove = favorites.filter(fav => fav.id == id)
+function removeFavorite(button, id) {
+  let favoriteToRemove = allFavorites.filter(fav => fav.id == id)
+  console.log("favorite to remove", id, favoriteToRemove[0], allFavorites.indexOf(favoriteToRemove[0]));
+  let indexToRemove = allFavorites.indexOf(favoriteToRemove[0])
+  if (indexToRemove > -1) {
+    allFavorites.splice(indexToRemove, 1);
+  }
+  console.log("after splice", allFavorites);
   let data = favoriteToRemove[0]
   fetch(FAVORITES_URL + `${id}`, {
     method: "DELETE",
@@ -149,7 +157,7 @@ function removeFavorite(favorites, button, id) {
   .then(response => response.json())
   .then(favorite => {
     button.parentNode.removeChild(button)
-    favoriteIndex()
+    //favoriteIndex()
   })
 }
 
