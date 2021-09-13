@@ -9,11 +9,13 @@ var submitted=false;
 document.addEventListener("DOMContentLoaded", () => {
   //console.log("We live");
   loadEntries()
+  favoriteIndex()
   addToFavoritesHandler()
   aboutPanelHandler()
   contributePanelHandler()
   searchHandler()
   removeFavoriteHandler()
+  setTimeout(function() {algorithmHandler()}, 2000)
 })
 
 function loadEntries() {
@@ -52,7 +54,6 @@ function loadEntries() {
 
       entriesList.innerHTML += card
     })
-    favoriteIndex()
   })
 }
 
@@ -80,7 +81,9 @@ function addToFavorites(entryId) {
     var favoritedEntry = allEntries.filter(entry => entry.id == favorite.entry_id)
     let favoritesDiv = document.getElementById("favorites")
     favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light fav-btn" data-class="remove-button" id=${favorite.id}><i class="bi bi-x-circle"></i> ${favoritedEntry[0].name}</button>  `
-    //splitFavoriteBios()
+    algorithmHandler()
+    let select = document.getElementById("choose-algorithm")
+    select.selectedIndex = 0
   })
 }
 
@@ -89,6 +92,7 @@ function favoriteIndex() {
   .then(resp => resp.json())
   .then(favorites => {
     favorites.forEach(fav => {allFavorites.push(fav)});
+    console.log(allFavorites);
     for (var i = 0; i < favorites.length; i++) {
       var favoritedEntries = allEntries.filter(entry => {
         return entry.id == favorites[i].entry_id
@@ -98,7 +102,7 @@ function favoriteIndex() {
         favoritesDiv.innerHTML += `<button type="button" class="btn btn-outline-light fav-btn" data-class="remove-button" id=${favorites[i].id}><i class="bi bi-x-circle"></i> ${entry.name}</button>`
       })
     }
-    splitFavoriteBios()
+    //splitFavoriteBios()
     showEntryHandler()
   })
 }
@@ -158,6 +162,9 @@ function removeFavorite(button, id) {
   .then(favorite => {
     button.parentNode.removeChild(button)
     //favoriteIndex()
+    algorithmHandler()
+    let select = document.getElementById("choose-algorithm")
+    select.selectedIndex = 0
   })
 }
 
@@ -205,41 +212,9 @@ function searchHandler() {
   })
 }
 
-function splitFavoriteBios() {
-  //let poemButton = document.getElementById("generate-poem")
-  //poemButton.addEventListener("click", () => {
-    fetch(FAVORITES_URL)
-    .then(response => response.json())
-    .then(favorites => {
-      // if (favorites.length === 0) {
-      //   console.log("No favorites added yet. To add a favorite view entries below.");
-      //   //entryIndex()
-      // } else {
-        var singleArrayOfSentences = []
-        for (var i = 0; i < favorites.length; i++) {
-          favoritedEntries = allEntries.filter(entry => entry.id == favorites[i].entry_id)
-          favoritedEntries.forEach(entry => {
-            //console.log(entry.name, entry.id);
-            authors.push(entry)
-            let splitBio = entry.bio.split(".")
-            // push each sentence into a single array
-            for (let i = 0, len = splitBio.length; i < len ; i++) {
-              singleArrayOfSentences.push(splitBio[i])
-            }
-          })
-        }
-        var arrayOfSentences = singleArrayOfSentences
-        //console.log("in split bios", arrayOfSentences);
-        //fisherYates(singleArrayOfSentences)
-        algorithmHandler(arrayOfSentences)
-      //}
-    })
-  //})
-}
-
 // Fisher-Yates (aka Knuth) Shuffle.
 // https://stackoverflow.com/a/2450976
-function fisherYates(array) {
+function fisherYates(array, favoritedEntries) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
@@ -257,7 +232,7 @@ function fisherYates(array) {
 
   //log non-linear narrative
   console.log("fisher array", array);
-  renderPoem(array)
+  renderPoem(array, favoritedEntries)
 }
 
 // Quick Sort: https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-1.php
@@ -298,8 +273,11 @@ function naiveShuffle(array) {
 }
 
 function renderPoem(array) {
+
   let poemButton = document.getElementById("generate-poem")
   poemButton.addEventListener("click", () => {
+    let select = document.getElementById("choose-algorithm")
+    select.selectedIndex = 0
     //if (array.length == 0) {
       //alert("Add entries to your favorites to generate a narrative <3")
     //} else {
@@ -310,16 +288,41 @@ function renderPoem(array) {
       fixedPanel.style.display = "block";
       //take print button out of "section to print" div
       let printButton = `<br><br><button onclick="window.print()">Print</button>`
-      authors.forEach(entry => {
+      // authors.forEach(entry => {
+      //   authorsDiv.innerHTML +=
+      //   `<h5>${entry.name}<sup>${entry.id}</sup> (b.${entry.born}),</h5>`
+      // })
+
+      for (var i = 0; i < allFavorites.length; i++) {
+        favoritedEntries = allEntries.filter(entry => entry.id == allFavorites[i].entry_id)
+        console.log(favoritedEntries);
         authorsDiv.innerHTML +=
-        `<h5>${entry.name}<sup>${entry.id}</sup> (b.${entry.born}),</h5>`
-      })
+        `<h5>${favoritedEntries[0].name}<sup>${favoritedEntries[0].id}</sup> (b.${favoritedEntries[0].born}),</h5>`
+      }
+
       showPanel.innerHTML = array + printButton
     //}
   })
 }
 
-function algorithmHandler(array) {
+function algorithmHandler() {
+  console.log("all favs", allFavorites);
+  //console.log("fetched favs", favorites);
+  var singleArrayOfSentences = []
+  for (var i = 0; i < allFavorites.length; i++) {
+    favoritedEntries = allEntries.filter(entry => entry.id == allFavorites[i].entry_id)
+    favoritedEntries.forEach(entry => {
+      //console.log(entry.name, entry.id);
+      //authors.push(entry)
+      let splitBio = entry.bio.split(".")
+      // push each sentence into a single array
+      for (let i = 0, len = splitBio.length; i < len ; i++) {
+        singleArrayOfSentences.push(splitBio[i])
+      }
+    })
+  }
+  var arrayOfSentences = singleArrayOfSentences
+
   let select = document.getElementById("choose-algorithm")
   //console.log(select);
   select.addEventListener("change", () => {
@@ -329,13 +332,14 @@ function algorithmHandler(array) {
         console.log("choose");
       }else if (event.target.selectedOptions.fisher) {
         console.log("fisher shuffle");
-        fisherYates(array)
+        console.log(arrayOfSentences);
+        fisherYates(arrayOfSentences)
       }else if (event.target.selectedOptions.naive) {
         console.log("naive shuffle");
-        naiveShuffle(array)
+        naiveShuffle(arrayOfSentences)
       }else {
         console.log("quick");
-        var sortedArray = quickSort(array);
+        var sortedArray = quickSort(arrayOfSentences);
         renderPoem(sortedArray);
       }
     }
