@@ -8,6 +8,7 @@ var submitted=false;
 
 document.addEventListener("DOMContentLoaded", () => {
   //console.log("We live");
+  emptyFavorites()
   loadEntries()
   favoriteIndex()
   addToFavoritesHandler()
@@ -165,6 +166,14 @@ function removeFavorite(button, id) {
     algorithmHandler()
     let select = document.getElementById("choose-algorithm")
     select.selectedIndex = 0
+  })
+}
+
+function emptyFavorites() {
+  fetch("https://bfwd-backend.herokuapp.com/api/v1/reload")
+  .then(response => response.json())
+  .then(deletedFavorites => {
+    console.log(deletedFavorites);
   })
 }
 
