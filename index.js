@@ -121,6 +121,8 @@ function showEntry(id) {
   let showPanel = document.getElementById("show-panel")
   let fixedPanel = document.getElementById('section-to-print')
   fixedPanel.style.display = "block";
+  let body = document.getElementById("body")
+  body.classList.add("stop-scrolling")
   //showPanel.innerHTML = ""
   let entryToShow = allEntries.filter(entry => entry.id == id)
   console.log(entryToShow[0]);
@@ -295,6 +297,8 @@ function renderPoem(array) {
       let showPanel = document.getElementById("show-panel")
       let fixedPanel = document.getElementById('section-to-print')
       fixedPanel.style.display = "block";
+      let body = document.getElementById("body")
+      body.classList.add("stop-scrolling")
       //take print button out of "section to print" div
       let printButton = `<br><br><button onclick="window.print()">Print</button>`
       // authors.forEach(entry => {
@@ -370,6 +374,8 @@ function contributePanelRender() {
   let authorsDiv = document.getElementById("authors")
   let fixedPanel = document.getElementById('section-to-print')
   fixedPanel.style.display = "block";
+  let body = document.getElementById("body")
+  body.classList.add("stop-scrolling")
   authorsDiv.innerHTML = ""
   //https://www.developerdrive.com/add-google-forms-static-site/
   //https://youtu.be/0udw0nol6Po
@@ -443,6 +449,8 @@ function successfulForm() {
   let showPanel = document.getElementById("show-panel")
   let authorsDiv = document.getElementById("authors")
   authorsDiv.innerHTML = ""
+  let body = document.getElementById("body")
+  body.classList.add("stop-scrolling")
   showPanel.innerHTML =
   `<h3>Thank you for your contribution to the Database!</h3>`
 }
@@ -504,6 +512,8 @@ function aboutPanelRender() {
   let authorsDiv = document.getElementById("authors")
   let fixedPanel = document.getElementById('section-to-print')
   fixedPanel.style.display = "block";
+  let body = document.getElementById("body")
+  body.classList.add("stop-scrolling")
   authorsDiv.innerHTML = ""
   showPanel.innerHTML =
   `<h2>Black Feminist World Database</h2>
