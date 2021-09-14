@@ -9,6 +9,7 @@ var submitted=false;
 document.addEventListener("DOMContentLoaded", () => {
   //console.log("We live");
   emptyFavorites()
+  homeButton()
   loadEntries()
   addToFavoritesHandler()
   aboutPanelHandler()
@@ -17,6 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
   removeFavoriteHandler()
   setTimeout(function() {algorithmHandler()}, 2000)
 })
+
+function homeButton() {
+  let fixedPanel = document.getElementById('section-to-print')
+  let homeButton = document.getElementById("home")
+  let body = document.getElementById("body")
+  homeButton.addEventListener("click", () => {
+    fixedPanel.style.display = "none";
+    body.classList.remove("stop-scrolling")
+  })
+}
 
 function loadEntries() {
   fetch(ENTRIES_URL)
