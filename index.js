@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //console.log("We live");
   emptyFavorites()
   loadEntries()
-  favoriteIndex()
   addToFavoritesHandler()
   aboutPanelHandler()
   contributePanelHandler()
@@ -174,6 +173,7 @@ function emptyFavorites() {
   .then(response => response.json())
   .then(deletedFavorites => {
     console.log(deletedFavorites);
+    favoriteIndex()
   })
 }
 
