@@ -311,7 +311,7 @@ function renderPoem(array) {
       let body = document.getElementById("body")
       body.classList.add("stop-scrolling")
       //take print button out of "section to print" div
-      let printButton = `<br><br><button onclick="window.print()">Print</button>`
+      let printButton = `<br><br><button class="btn btn-outline-light"  onclick="window.print()">Print</button>`
       // authors.forEach(entry => {
       //   authorsDiv.innerHTML +=
       //   `<h5>${entry.name}<sup>${entry.id}</sup> (b.${entry.born}),</h5>`
