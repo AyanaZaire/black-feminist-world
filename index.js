@@ -31,7 +31,7 @@ function homeButton() {
 }
 
 function loadEntries() {
-  let loader = `<div class="text-center">
+  let loader = `<div id="loader" class="text-center">
     <div class="spinner-border m-5" role="status" style="width: 7rem; height: 7rem;"></div><br>
     <span class="sr-only">Loading...</span>
   </div>`
