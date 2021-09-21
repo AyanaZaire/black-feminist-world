@@ -26,15 +26,22 @@ function homeButton() {
   homeButton.addEventListener("click", () => {
     fixedPanel.style.display = "none";
     body.classList.remove("stop-scrolling")
+    loadEntries()
   })
 }
 
 function loadEntries() {
+  let loader = `<div class="text-center">
+    <div class="spinner-border m-5" role="status" style="width: 7rem; height: 7rem;"></div><br>
+    <span class="sr-only">Loading...</span>
+  </div>`
+  let entriesList = document.getElementById("index-panel")
+  entriesList.innerHTML = loader
   fetch(ENTRIES_URL)
   .then(resp => resp.json())
   .then(entries => {
-    let entriesList = document.getElementById("index-panel")
     //console.log(entriesList);
+    entriesList.innerHTML = ""
     entries.forEach(entry => {
       allEntries.push(entry)
       let entryBioToTrim = entry.bio
