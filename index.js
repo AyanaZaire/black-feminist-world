@@ -58,7 +58,7 @@ function loadEntries() {
           </div>
           <div class="card-footer">
             <div class="row" id="plus-and-zoom">
-             <div class="col-6">
+             <div class="col-6 add-to-favorites">
                <i class="bi bi-plus-circle" data-class="add-to-favorites" id=${entry.id}></i>
              </div>
              <div class="col-6 text-end">
